@@ -8,17 +8,21 @@ export default function Textform() {//all function work in textform function.
     let newText = event.target.value
     setText(newText);
   }
+  // for convert to uppercase
   const handleonUppercase = (event) =>{
-    // console.log("text")
     let newText = text.toUpperCase()
     setText(newText)
   }
-
+// for convert to lowercase 
   const handleonlowercase = (event) =>{
-    // console.log("text")
     let newText = text.toLowerCase()
     setText(newText)
   }
+// fro clearinig text on click
+  const handleonClearText = (event) =>{
+    setText('');
+  }
+
 
   return (
     <div>
@@ -26,18 +30,32 @@ export default function Textform() {//all function work in textform function.
         <h1>Enter Your Text Here</h1>
             <textarea 
               value={text}
-              className="form-control bg-secondry" 
+              className="form-control" 
               onChange={handleOnChange}
               id="text"
               rows="3"
             ></textarea>
-    </div>
+  </div>
      {/*change text into lowercase */}
-        <button className="btn btn-primary m-2 bg-dark"
+        <button className="btn btn-outline-success m-2"
         onClick={handleonUppercase}> Change to Uppercase</button>
      {/* change text into lowercase */}   
-        <button className="btn btn-primary bg-dark"
+        <button className="btn btn-outline-info m-2"
         onClick={handleonlowercase}> Change to Lowercase</button>
-    </div>
+     {/* Button for clearing text on click */}
+        <button type="button" class="btn btn-outline-danger"
+         onClick={handleonClearText}>Clear Text</button>
+    <hr/>
+    <div className="classname p-3">
+          <h1>
+            Your Text Area
+          </h1>
+     </div>
+     <hr/>
+     <p>Your text Contains :{text.split("").length-1} Words and {text.length}: Characters </p>
+     <hr/>
+    <p>Preview Your Text</p>
+
+  </div>
   )
 }
