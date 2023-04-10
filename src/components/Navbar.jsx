@@ -21,9 +21,14 @@ export default function Navbar(props) {
       </li>
     </ul>
     {/* search & login button */}
-    <form class="d-flex float-left" role="search">
-      <input class="form-control me-2 float-end" type="search" placeholder="Search" aria-label="Search"/>
-      <button class="btn btn-outline-success float-end" type="submit">Search</button>
+    <form className="d-flex float-left" role="search">
+    <input type="text" class="form-control " placeholder="Username" aria-label="Username" aria-describedby="basic-addon1"/>
+
+      <button className="btn btn-outline-success float-end m-2"
+               type="submit"
+               id="search"
+      >Search</button>
+
     </form>
   </div>
 </nav>
