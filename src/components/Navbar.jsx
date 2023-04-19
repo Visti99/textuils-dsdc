@@ -1,12 +1,12 @@
 import React from 'react'
-import {
-  Link,
- } from "react-router-dom";
+// import {
+//   Link,
+//  } from "react-router-dom";
  import img from './t.png';
 
 export default function Navbar(props) {
   return (
-    <browserRouter>
+    // <browserRouter>
 
     <nav className={`navbar navbar-expand-lg bg-${props.mode} navbar-${props.mode}`}>
       <a className="navbar-brand" href="/"><img src={img} alt="" width="50" /></a>
@@ -23,17 +23,17 @@ export default function Navbar(props) {
             <a className="nav-link" href="/">home</a>
           </li>
           {/* home button  */}
-          <li className="nav-item text-lightbg-dark ">
+          {/* <li className="nav-item text-lightbg-dark ">
             <Link to className="nav-link" href="/home">{props.about}</Link>
-          </li>
+          </li> */}
           {/* about us button */}
-          <li className="nav-item">
+          {/* <li className="nav-item">
             <Link className="nav-link" to="/aboutus">{props.aboutText}</Link>
-          </li>
+          </li> */}
           {/* Github button  */}
-          <li className="nav-item">
+          {/* <li className="nav-item">
             <Link className="nav-link" to="/github">github</Link>
-          </li>
+          </li> */}
         </ul>
 
   {/* text-black */}
@@ -43,7 +43,7 @@ export default function Navbar(props) {
         </div>
       </div>
     </nav>
-    </browserRouter>
+    // </browserRouter>
 
   )
 }

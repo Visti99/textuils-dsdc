@@ -4,11 +4,11 @@ import Textform from './components/Textform';//here file textform imported
 import AboutUs from './components/Aboutus';
 import { useState } from 'react';
 import Alert from './components/Alert';
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-} from "react-router-dom";
+// import {
+//   BrowserRouter,
+//   Routes,
+//   Route,
+// } from "react-router-dom";
 import Github from './components/Github'
 
 
@@ -49,7 +49,7 @@ function App() {
   return (
     // structure of website <.> is entry gate & </> is ending of webistes.
     <>
-    <BrowserRouter>
+    {/* <BrowserRouter> */}
     {/* first step is NAVBAR */}
       <Navbar mode={mode}
         handleMode={handleMode}
@@ -59,21 +59,24 @@ function App() {
         <Alert alert={alert}/>
     {/* Main content here */}
       <div className='p-5'>
-    <Routes>
-      <Route path="/"
-              element={<Textform showAlert={showAlert}  mode={mode} />}/>
+    {/* <Routes> */}
+      {/* <Route path="/" */}
+              {/* // element={<Textform showAlert={showAlert}  mode={mode} />}/> */}
+              <Textform showAlert={showAlert}  mode={mode} />
 
     {/* about us  */}
-      <Route path="/aboutus"
-             element={<AboutUs/>}/> 
+      {/* <Route path="/aboutus" */}
+             {/* element={<AboutUs/>}/>  */}
+             <AboutUs/>
 
     {/*This is for Github link  */}
-      <Route path="/github" 
-             element={<Github /> }/>
+      {/* <Route path="/github" 
+             element={<Github /> }/> */}
+             <Github />
 
-        </Routes>
+        {/* </Routes> */}
       </div>
-      </BrowserRouter>
+      {/* </BrowserRouter> */}
     </>
   );
 }
