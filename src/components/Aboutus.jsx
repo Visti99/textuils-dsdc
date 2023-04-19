@@ -36,8 +36,8 @@ export default function AboutUs() {
 
  {/* button is for enable dark mode */}
           <button className="btn btn-primary"
-            onClick={handlestyle}>
-            Enable Dark Mode
+                  onClick={handlestyle}>
+                  Enable Dark Mode
           </button>
         </div>
       </div>

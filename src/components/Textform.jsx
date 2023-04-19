@@ -16,22 +16,34 @@ export default function TextForm(props) {
   const handleChange = (e) => {
     let newText = e.target.value;
     setText(newText);
+    props.showAlert('success', 'Converted into Uppercase')
   }
+
   // chnge to uppercase
   const handleUpperCase = (e) => {
-    let newTExt = text.toUpperCase();
-    setText(newTExt);
+    if(text.length !== 0){//this is conditon in which if text length is 0 then we get a warning is please enter text to process your text.
+      let newText = text.toUpperCase();
+      setText(newText);
+      props.showAlert('success','Converted to UpperCase')
+    }else{
+      props.showAlert('danger','Please enter text to process your text')
+    }
   }
 
   // chnge to lowerCase
   const handleLowerCase = (e) => {
+    if(text.length !== 0){//this is conditon in which if text length is 0 then we get a warning is please enter text to process your text.
     let newtext = text.toLowerCase();
     setText(newtext);
-
+    props.showAlert('success','Converted to LowerCase')
+  }else{
+    props.showAlert('danger','Please enter text to process your text')
   }
+}
+
   //chnge to first letter to upper letter
   const handlefirstToUpperCase = (e) => {
-
+    
     let tempArr = text.split(" ");
     let temp = "";
     tempArr.forEach(element => {
@@ -41,15 +53,16 @@ export default function TextForm(props) {
 
     });
     setText(temp)
+    props.showAlert('success','All words capitalized!')
   }
   //click to clear text.
   const handleClearText = (e) => {
     setText("");
+    props.showAlert('warning','Text Cleared!')
   }
 
   //click word count
   const handleWordCount = (e) => {
-
     // alert(search);
     const regex = new RegExp(search, 'gi');
     const newstr = text.match(regex);
@@ -74,10 +87,10 @@ export default function TextForm(props) {
     document.body.style.color = "white";//chng text black to white    
   }
 
-  //Color change on Click   
-  function handelcolornormal() {
-    document.getElementById("txt").style.color = 'black';
-    document.getElementById("txt").style.fontSize = 'medium';
+    //Color change on Click   
+    function handelcolornormal() {
+      document.getElementById("txt").style.color = 'black';
+      document.getElementById("txt").style.fontSize = 'medium';
 
     // document.getElementById("txt").style.direction = "ltr"; //ltr means left to ro=ight 
     document.body.style.backgroundColor = "";//click to chng background normal
@@ -92,7 +105,8 @@ export default function TextForm(props) {
   return (
   // background color changing Condition 
   //1. if bg is dark then chng to light &
-  //2. if bg id light then chng to dark,
+  //2. if bg id light then chng to dark.
+  //props meant by property amd mode is like a variable
     <div style={{ backgroundColor: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
       <div className=" mb-3">
         <h1>Enter Your Text Here</h1>
